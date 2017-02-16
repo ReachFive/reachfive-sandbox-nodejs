@@ -15,8 +15,7 @@ Clone this repository from Github
 
 Install dependencies
 
-    npm install
-
+    npm install
 ## Configure
 
 Copy `.env.example` to `.env and replace the values for `REACH5_DOMAIN`, 
