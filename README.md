@@ -18,7 +18,7 @@ Install dependencies
     npm install
 ## Configure
 
-Copy `.env.example` to `.env and replace the values for `REACH5_DOMAIN`, 
+Copy `.env.example` to `.env` and replace the values for `REACH5_DOMAIN`, 
 `REACH5_CLIENT_ID`, and `REACH5_CLIENT_SECRET` with your ReachFive 
 credentials.
 
