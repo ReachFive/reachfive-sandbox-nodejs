@@ -2,7 +2,6 @@
 
 ## Requirements
 
- * Git
  * Node
  * Yarn or NPM
 
@@ -12,10 +11,10 @@ Clone this repository from Github
 
     git clone git@github.com:ReachFive/reachfive-sandbox-nodejs.git
     cd reachfive-sandbox-nodejs
-
+    
 Install dependencies
 
-    npm install
+    npm install
  
 ## Configure
 
@@ -27,14 +26,14 @@ Those values are available in your ReachFive account settings.
 
 To work correctly, your also have to add the following values in your 
 account settings:
- * `localhost` in *Allowed Origins*
- * `http://localhost:3000/login/callback` to *Allowed Callback URLs*
+ * `localhost` in **Allowed Origins**
+ * `http://localhost:3000/login/callback` in **Allowed Callback URLs**
 
 ## Run
 
     npm start
 
-Go to `https://localhost:3000`.
+You can now see the app running at `http://localhost:3000`.
 
 ## Author
 
