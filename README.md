@@ -16,6 +16,7 @@ Clone this repository from Github
 Install dependencies
 
     npm install
+ 
 ## Configure
 
 Copy `.env.example` to `.env` and replace the values for `REACH5_DOMAIN`, 
@@ -24,8 +25,10 @@ credentials.
 
 Those values are available in your ReachFive account settings.
 
-To work correctly, your also have to add `localhost` to *Allowed Origins*
-and `http://localhost:3000/login/callback` to *Allowed Callback URLs*
+To work correctly, your also have to add the following values in your 
+account settings:
+ * `localhost` in *Allowed Origins*
+ * `http://localhost:3000/login/callback` to *Allowed Callback URLs*
 
 ## Run
 
