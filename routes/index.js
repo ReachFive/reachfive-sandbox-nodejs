@@ -54,26 +54,11 @@ router.get(
           var idToken = authResult['id_token'];
           var decoded = jwt.verify(idToken, process.env.REACH5_CLIENT_SECRET);
 
-          request(
-            'https://' + process.env.REACH5_DOMAIN + '/identity/v1/me?fields=id,name',
-            {
-              headers: {
-                'Authorization': 'Id-Token ' + idToken
-              }
-            },
-            function (err, response, body) {
-              if (!err && response.statusCode == 200) {
-                var user = JSON.parse(body);
-                req.session.userId = decoded.sub;
-                req.session.name = user.name;
-                res.redirect('/user');
-              } else {
-                console.error(body);
-                res.redirect('/login');
-              }
-            });
+          req.session.userId = decoded.sub;
+          req.session.name = decoded.name;
+          res.redirect('/user');
+
         } else {
-          console.error(body);
           res.redirect('/login');
         }
       }
