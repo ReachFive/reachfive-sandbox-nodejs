@@ -3,8 +3,10 @@
 </p>
 
 <div id="profile-editor"></div>
-<div id="email-editor"></div>
-<div id="password-editor"></div>
+
+<p>
+    <a href="/user">Back</a>
+</p>
 
 <script>
   reach5('showProfileEditor', {
@@ -14,13 +16,5 @@
       "family_name",
       "email"
     ]
-  });
-
-  reach5('showEmailEditor', {
-    container: 'email-editor'
-  });
-
-  reach5('showPasswordEditor', {
-    container: 'password-editor'
   });
 </script>

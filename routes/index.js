@@ -23,9 +23,66 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('login', {
+router.get('/auth', function(req, res, next) {
+  res.render('auth', {
     redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+router.get('/passwordless', function(req, res, next) {
+  res.render('passwordless', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+router.get('/social-login', function(req, res, next) {
+  res.render('social-login', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+router.get('/social-login-core', function(req, res, next) {
+  res.render('social-login-core', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+const authenticated = function(req, res, next) {
+  if (req.session.userId) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+};
+
+router.get('/user', authenticated, function(req, res, next) {
+  res.render('user', {
+    name: req.session.name,
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+router.get('/profile', authenticated, function(req, res, next) {
+  res.render('profile', {
+    name: req.session.name,
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+router.get('/email-editor', authenticated, function(req, res, next) {
+  res.render('email-editor', {
+    name: req.session.name,
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+router.get('/password-editor', authenticated, function(req, res, next) {
+  res.render('password-editor', {
+    name: req.session.name,
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
@@ -62,7 +119,7 @@ router.get(
           res.redirect('/user');
 
         } else {
-          res.redirect('/login');
+          res.redirect('/');
         }
       }
     );
