@@ -17,7 +17,10 @@ function oauthRedirectUri(req) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'ReachFive Sandbox' });
+  res.render('index', {
+    title: 'ReachFive Sandbox',
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
 });
 
 router.get('/login', function(req, res, next) {

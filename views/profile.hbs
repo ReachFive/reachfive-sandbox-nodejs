@@ -1,0 +1,26 @@
+<p>
+    Connected as {{name}} - <a href="/logout">Logout</a>
+</p>
+
+<div id="profile-editor"></div>
+<div id="email-editor"></div>
+<div id="password-editor"></div>
+
+<script>
+  reach5('showProfileEditor', {
+    container: 'profile-editor',
+    fields: [
+      "given_name",
+      "family_name",
+      "email"
+    ]
+  });
+
+  reach5('showEmailEditor', {
+    container: 'email-editor'
+  });
+
+  reach5('showPasswordEditor', {
+    container: 'password-editor'
+  });
+</script>
