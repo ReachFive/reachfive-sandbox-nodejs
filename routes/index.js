@@ -37,6 +37,13 @@ router.get('/login-with-password-core', function(req, res, next) {
   });
 });
 
+router.get('/signup-core', function(req, res, next) {
+  res.render('signup-core', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
 router.get('/passwordless', function(req, res, next) {
   res.render('passwordless', {
     redirectUri: oauthRedirectUri(req),

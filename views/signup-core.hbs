@@ -1,0 +1,31 @@
+<form id="signup-form">
+    <div>
+        <input type="text" name="email">
+    </div>
+    <div>
+        <input type="password" name="password">
+    </div>
+    <button onclick="signup(event)">
+        Submit
+    </button>
+</form>
+
+<script>
+    function signup(e) {
+        e.preventDefault();
+        var form = document.getElementById('signup-form');
+        var formData = new FormData(form);
+        reach5('signup', {
+            data: {
+              email: formData.get('email'),
+              password: formData.get('password')
+            },
+            auth: {
+              redirectUri: '{{redirectUri}}'
+            }
+        }, function (err) {
+            if (err) console.log(err);
+        });
+        return false;
+    }
+</script>
