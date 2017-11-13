@@ -44,6 +44,13 @@ router.get('/signup-core', function(req, res, next) {
   });
 });
 
+router.get('/reset-password-core', function(req, res, next) {
+  res.render('reset-password-core', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
 router.get('/passwordless', function(req, res, next) {
   res.render('passwordless', {
     redirectUri: oauthRedirectUri(req),
