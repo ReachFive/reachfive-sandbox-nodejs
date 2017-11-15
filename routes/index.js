@@ -44,13 +44,6 @@ router.get('/signup-core', function(req, res, next) {
   });
 });
 
-router.get('/reset-password-core', function(req, res, next) {
-  res.render('reset-password-core', {
-    redirectUri: oauthRedirectUri(req),
-    reach5Domain: process.env.REACH5_DOMAIN
-  });
-});
-
 router.get('/passwordless', function(req, res, next) {
   res.render('passwordless', {
     redirectUri: oauthRedirectUri(req),
@@ -82,6 +75,20 @@ const authenticated = function(req, res, next) {
 
 router.get('/user', authenticated, function(req, res, next) {
   res.render('user', {
+    name: req.session.name,
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+router.get('/update-profile-core', authenticated, function(req, res, next) {
+  res.render('update-profile-core', {
+    name: req.session.name,
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+router.get('/reset-password-core', function(req, res, next) {
+  res.render('reset-password-core', {
     name: req.session.name,
     reach5Domain: process.env.REACH5_DOMAIN
   });

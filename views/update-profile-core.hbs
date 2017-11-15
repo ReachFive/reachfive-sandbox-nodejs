@@ -1,0 +1,22 @@
+<form id="update-form">
+    <div>
+        <input type="text" name="email">
+    </div>
+    <button onclick="login(event)">
+        Submit
+    </button>
+</form>
+
+<script>
+    function login(e) {
+        e.preventDefault();
+        var form = document.getElementById('update-form');
+        var formData = new FormData(form);
+        reach5('updateProfile', {
+            email: formData.get('email')
+        }, function (err) {
+            if (err) console.log(err);
+        });
+        return false;
+    }
+</script>
