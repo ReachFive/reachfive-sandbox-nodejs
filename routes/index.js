@@ -72,6 +72,13 @@ router.get('/social-login-core', function(req, res, next) {
   });
 });
 
+router.get('/reset-password', function(req, res, next) {
+  res.render('reset-password', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
 const authenticated = function(req, res, next) {
   if (req.session.userId) {
     next();
@@ -87,16 +94,10 @@ router.get('/user', authenticated, function(req, res, next) {
   });
 });
 
-router.get('/update-profile-core', authenticated, function(req, res, next) {
-  res.render('update-profile-core', {
-    name: req.session.name,
-    reach5Domain: process.env.REACH5_DOMAIN
-  });
-});
-
 router.get('/profile', authenticated, function(req, res, next) {
   res.render('profile', {
     name: req.session.name,
+    accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
@@ -104,6 +105,7 @@ router.get('/profile', authenticated, function(req, res, next) {
 router.get('/email-editor', authenticated, function(req, res, next) {
   res.render('email-editor', {
     name: req.session.name,
+    accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
@@ -111,6 +113,16 @@ router.get('/email-editor', authenticated, function(req, res, next) {
 router.get('/password-editor', authenticated, function(req, res, next) {
   res.render('password-editor', {
     name: req.session.name,
+    accessToken: req.session.accessToken,
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+
+router.get('/update-profile-core', authenticated, function(req, res, next) {
+  res.render('update-profile-core', {
+    name: req.session.name,
+    accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
@@ -144,6 +156,7 @@ router.get(
 
           req.session.userId = decoded.sub;
           req.session.name = decoded.name;
+          req.session.accessToken = authResult['access_token'];
           res.redirect('/user');
 
         } else {

@@ -13,6 +13,7 @@
         var form = document.getElementById('update-form');
         var formData = new FormData(form);
         reach5('updateProfile', {
+          accessToken: '{{accessToken}}',
           data: {
             email: formData.get('email')
           }
