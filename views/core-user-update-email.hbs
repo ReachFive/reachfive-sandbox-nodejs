@@ -1,6 +1,6 @@
 <form id="update-form">
     <div>
-        <input type="password" name="password">
+        <input type="text" name="email" placeholder="Email">
     </div>
     <button onclick="login(event)">
         Submit
@@ -16,10 +16,10 @@
         e.preventDefault();
         var form = document.getElementById('update-form');
         var formData = new FormData(form);
-        reach5('updatePassword', {
+        reach5('updateEmail', {
           accessToken: '{{accessToken}}',
-          password: formData.get('password')
-        }, function (err, result) {
+          email: formData.get('email')
+        }, function (err) {
             if (err) console.log(err);
         });
         return false;

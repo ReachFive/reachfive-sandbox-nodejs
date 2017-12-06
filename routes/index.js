@@ -23,57 +23,57 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/auth', function(req, res, next) {
-  res.render('auth', {
+router.get('/widget-auth', function(req, res, next) {
+  res.render('widget-auth', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/login-with-password-core', function(req, res, next) {
-  res.render('login-with-password-core', {
+router.get('/core-login-with-password', function(req, res, next) {
+  res.render('core-login-with-password', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/signup-core', function(req, res, next) {
-  res.render('signup-core', {
+router.get('/core-signup', function(req, res, next) {
+  res.render('core-signup', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/reset-password-core', function(req, res, next) {
-  res.render('reset-password-core', {
+router.get('/core-password-reset', function(req, res, next) {
+  res.render('core-password-reset', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/passwordless', function(req, res, next) {
-  res.render('passwordless', {
+router.get('/widget-passwordless', function(req, res, next) {
+  res.render('widget-passwordless', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/social-login', function(req, res, next) {
-  res.render('social-login', {
+router.get('/widget-social-login', function(req, res, next) {
+  res.render('widget-social-login', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/social-login-core', function(req, res, next) {
-  res.render('social-login-core', {
+router.get('/core-social-login', function(req, res, next) {
+  res.render('core-social-login', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/reset-password', function(req, res, next) {
-  res.render('reset-password', {
+router.get('/widget-user-password-reset', function(req, res, next) {
+  res.render('widget-user-password-reset', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACH5_DOMAIN
   });
@@ -94,24 +94,24 @@ router.get('/user', authenticated, function(req, res, next) {
   });
 });
 
-router.get('/profile', authenticated, function(req, res, next) {
-  res.render('profile', {
+router.get('/widget-user-profile-editor', authenticated, function(req, res, next) {
+  res.render('widget-user-profile-editor', {
     name: req.session.name,
     accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/email-editor', authenticated, function(req, res, next) {
-  res.render('email-editor', {
+router.get('/widget-user-email-editor', authenticated, function(req, res, next) {
+  res.render('widget-user-email-editor', {
     name: req.session.name,
     accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/password-editor', authenticated, function(req, res, next) {
-  res.render('password-editor', {
+router.get('/widget-user-password-editor', authenticated, function(req, res, next) {
+  res.render('widget-user-password-editor', {
     name: req.session.name,
     accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
@@ -119,24 +119,24 @@ router.get('/password-editor', authenticated, function(req, res, next) {
 });
 
 
-router.get('/update-profile-core', authenticated, function(req, res, next) {
-  res.render('update-profile-core', {
+router.get('/core-user-update-profile', authenticated, function(req, res, next) {
+  res.render('core-user-update-profile', {
     name: req.session.name,
     accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/update-email-core', authenticated, function(req, res, next) {
-  res.render('update-email-core', {
+router.get('/core-user-update-email', authenticated, function(req, res, next) {
+  res.render('core-user-update-email', {
     name: req.session.name,
     accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
   });
 });
 
-router.get('/update-password-core', authenticated, function(req, res, next) {
-  res.render('update-password-core', {
+router.get('/core-user-update-password', authenticated, function(req, res, next) {
+  res.render('core-user-update-password', {
     name: req.session.name,
     accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
