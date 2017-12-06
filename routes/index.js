@@ -118,6 +118,13 @@ router.get('/widget-user-password-editor', authenticated, function(req, res, nex
   });
 });
 
+router.get('/widget-user-social-accounts', authenticated, function(req, res, next) {
+  res.render('widget-user-social-accounts', {
+    name: req.session.name,
+    accessToken: req.session.accessToken,
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
 
 router.get('/core-user-update-profile', authenticated, function(req, res, next) {
   res.render('core-user-update-profile', {

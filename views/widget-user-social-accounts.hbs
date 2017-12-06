@@ -1,0 +1,16 @@
+<p>
+    Connected as {{name}} - <a href="/logout">Logout</a>
+</p>
+
+<div id="social-accounts-container"></div>
+
+<p>
+    <a href="/user">Back</a>
+</p>
+
+<script>
+    reach5('showSocialAccounts', {
+      accessToken: '{{accessToken}}',
+      container: 'social-accounts-container'
+    });
+</script>
