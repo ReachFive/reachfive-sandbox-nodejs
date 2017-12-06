@@ -1,11 +1,16 @@
 <form id="update-form">
     <div>
-        <input type="text" name="email">
+        <input type="text" name="givenName" placeholder="First Name">
+        <input type="text" name="familyName" placeholder="Last Name">
     </div>
     <button onclick="login(event)">
         Submit
     </button>
 </form>
+
+<p>
+    <a href="/user">Back</a>
+</p>
 
 <script>
     function login(e) {
@@ -15,7 +20,8 @@
         reach5('updateProfile', {
           accessToken: '{{accessToken}}',
           data: {
-            email: formData.get('email')
+            givenName: formData.get('givenName'),
+            familyName: formData.get('familyName')
           }
         }, function (err) {
             if (err) console.log(err);
