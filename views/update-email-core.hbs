@@ -1,0 +1,28 @@
+<form id="update-form">
+    <div>
+        <input type="text" name="email">
+    </div>
+    <button onclick="login(event)">
+        Submit
+    </button>
+</form>
+
+<p>
+    <a href="/user">Back</a>
+</p>
+
+<script>
+    function login(e) {
+        e.preventDefault();
+        var form = document.getElementById('update-form');
+        var formData = new FormData(form);
+        reach5('updateEmail', {
+          accessToken: '{{accessToken}}',
+          email: formData.get('email')
+        }, function (err) {
+            if (err) console.log(err);
+            console.log("toto");
+        });
+        return false;
+    }
+</script>

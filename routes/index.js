@@ -127,6 +127,22 @@ router.get('/update-profile-core', authenticated, function(req, res, next) {
   });
 });
 
+router.get('/update-email-core', authenticated, function(req, res, next) {
+  res.render('update-email-core', {
+    name: req.session.name,
+    accessToken: req.session.accessToken,
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
+router.get('/update-password-core', authenticated, function(req, res, next) {
+  res.render('update-password-core', {
+    name: req.session.name,
+    accessToken: req.session.accessToken,
+    reach5Domain: process.env.REACH5_DOMAIN
+  });
+});
+
 router.get('/logout', function(req, res, next) {
   req.session.destroy(function(err) {
     res.redirect(
