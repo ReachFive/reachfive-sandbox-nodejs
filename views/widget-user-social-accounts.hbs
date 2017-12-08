@@ -2,6 +2,8 @@
     Connected as {{name}} - <a href="/logout">Logout</a>
 </p>
 
+<div id="re-auth-container"></div>
+
 <div id="social-accounts-container"></div>
 
 <p>
@@ -9,8 +11,20 @@
 </p>
 
 <script>
-    reach5('showSocialAccounts', {
-      accessToken: '{{accessToken}}',
-      container: 'social-accounts-container'
+    reach5('showAuth', {
+        container: 're-auth-container',
+        allowSignup: false,
+        allowForgotPassword: false,
+        auth: {
+            prompt: 'login',
+            loginHint: '{{email}}'
+        }
     });
+
+  reach5('on', 'authenticated', function(authResult) {
+     reach5('showSocialAccounts', {
+        accessToken: authResult.accessToken,
+        container: 'social-accounts-container'
+      });
+  });
 </script>
