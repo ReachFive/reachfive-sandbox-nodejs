@@ -121,7 +121,7 @@ router.get('/widget-user-password-editor', authenticated, function(req, res, nex
 router.get('/widget-user-social-accounts', authenticated, function(req, res, next) {
   res.render('widget-user-social-accounts', {
     name: req.session.name,
-    email: req.session.email,
+    idToken: req.session.idToken,
     accessToken: req.session.accessToken,
     reach5Domain: process.env.REACH5_DOMAIN
   });
@@ -181,6 +181,7 @@ router.get(
           req.session.userId = decoded.sub;
           req.session.name = decoded.name;
           req.session.email = decoded.email;
+          req.session.idToken = authResult['id_token'];
           req.session.accessToken = authResult['access_token'];
           res.redirect('/user');
 
