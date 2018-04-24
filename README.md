@@ -17,12 +17,13 @@ Install dependencies
 
 ## Configure
 
-Copy `.env.example` to `.env` and replace the values for `REACH5_DOMAIN`, `REACH5_CLIENT_ID`, and `REACH5_CLIENT_SECRET` with your ReachFive credentials.
+Copy `.env.example` to `.env` and replace the values for `REACH5_DOMAIN`, `REACH5_CLIENT_ID`, and `REACH5_CLIENT_SECRET`.
 
-Those values are available in your ReachFive account settings.
+`REACH5_DOMAIN` is available in your ReachFive account settings.
 
-To work correctly, your also have to add the following values in your account settings:
- * `localhost` in **Allowed Origins**
+To acquire `REACH5_CLIENT_ID`, and `REACH5_CLIENT_SECRET` credentials, you need to create a new Identity API Client in "Clients" section.
+To make it works correctly, you also have to add the following values in the client settings:
+ * `http://localhost:3000` in **Allowed Origins**
  * `http://localhost:3000/login/callback` in **Allowed Callback URLs**
 
 ## Run
