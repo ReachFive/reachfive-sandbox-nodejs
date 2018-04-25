@@ -185,6 +185,7 @@ router.get(
         form: {
           'code': req.query.code,
           'client_id': process.env.REACH5_CLIENT_ID,
+          'client_secret': process.env.REACH5_CLIENT_SECRET,
           'redirect_uri': oauthRedirectUri(req),
           'grant_type': 'authorization_code'
         }
@@ -205,6 +206,7 @@ router.get(
           res.redirect('/user');
 
         } else {
+          console.error(body);
           res.redirect('/');
         }
       }
