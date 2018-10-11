@@ -13,7 +13,7 @@ Clone this repository from Github
 
 Install dependencies
 
-    yarn install
+    yarn
 
 ## Configure
 
