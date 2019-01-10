@@ -194,6 +194,7 @@ router.get(
         if (!err && response.statusCode == 200) {
           var authResult = JSON.parse(body);
           var idToken = authResult['id_token'];
+          console.log(authResult['access_token']);
 
           var decoded = jwt.verify(idToken, process.env.REACH5_CLIENT_SECRET);
           console.log(decoded);
