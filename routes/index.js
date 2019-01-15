@@ -40,6 +40,14 @@ router.get('/core-login-with-password', function(req, res, next) {
   });
 });
 
+router.get('/core-login-with-password-sso', function(req, res, next) {
+  res.render('core-login-with-password-sso', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACH5_DOMAIN,
+    reach5ClientId: process.env.REACH5_CLIENT_ID
+  });
+});
+
 router.get('/core-signup', function(req, res, next) {
   res.render('core-signup', {
     redirectUri: oauthRedirectUri(req),
