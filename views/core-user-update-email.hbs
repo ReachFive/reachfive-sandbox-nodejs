@@ -1,4 +1,5 @@
 <form id="update-form">
+    <div id="result"></div>
     <div>
         <input type="text" name="email" placeholder="Email">
     </div>
@@ -19,8 +20,12 @@
         reach5('updateEmail', {
           accessToken: '{{accessToken}}',
           email: formData.get('email')
-        }, function (err) {
-            if (err) console.log(err);
+        }, function (err, res) {
+            if (err) {
+                document.getElementById('result').append(err.errorDescription)
+            } else {
+                document.getElementById('result').append('Your request has been processed successfully')
+            }
         });
         return false;
     }
