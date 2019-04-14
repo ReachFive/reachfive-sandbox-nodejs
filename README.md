@@ -21,6 +21,8 @@ Copy `.env.example` to `.env` and replace the values for `REACH5_DOMAIN`, `REACH
 
 `REACH5_DOMAIN` is available in your ReachFive account settings.
 
+Create a `public.pem` file with your public RSA key available in your ReachFive account settings.
+
 To acquire `REACH5_CLIENT_ID`, and `REACH5_CLIENT_SECRET` credentials, you need to create a new Identity API Client in "Clients" section.
 To make it works correctly, you also have to add the following values in the client settings:
  * `http://localhost:3000` in **Allowed Origins**
