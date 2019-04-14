@@ -36,7 +36,7 @@ You can now see the app running at `http://localhost:3000`.
 
 ## Author
 
-[ReachFive](https://reach5.co)
+[ReachFive](https://reachfive.com)
 
 ## License
 
