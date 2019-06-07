@@ -1,11 +1,11 @@
-<form id="signup-form">
+<form id="signup-form" onsubmit="signup(event)">
     <div>
         <input type="text" name="email" placeholder="Email">
     </div>
     <div>
         <input type="password" name="password" placeholder="Password">
     </div>
-    <button onclick="signup(event)">
+    <button>
         Submit
     </button>
 </form>
@@ -15,17 +15,19 @@
         e.preventDefault();
         var form = document.getElementById('signup-form');
         var formData = new FormData(form);
-        reach5('signup', {
-            data: {
+
+        client.signup({
+          data: {
               email: formData.get('email'),
               password: formData.get('password')
             },
             auth: {
               redirectUri: '{{redirectUri}}'
             }
-        }, function (err) {
-            if (err) console.log(err);
-        });
+        })
+        .then(console.log)
+        .catch(console.log)
+
         return false;
     }
 </script>

@@ -25,14 +25,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/widget-auth', function(req, res, next) {
-  res.render('widget-auth', {
-    redirectUri: oauthRedirectUri(req),
-    reach5Domain: process.env.REACHFIVE_DOMAIN,
-    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
-  });
-});
-
 router.get('/core-login-with-password', function(req, res, next) {
   res.render('core-login-with-password', {
     redirectUri: oauthRedirectUri(req),
@@ -75,32 +67,8 @@ router.get('/core-reset-password', function(req, res, next) {
   });
 });
 
-router.get('/widget-passwordless', function(req, res, next) {
-  res.render('widget-passwordless', {
-    redirectUri: oauthRedirectUri(req),
-    reach5Domain: process.env.REACHFIVE_DOMAIN,
-    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
-  });
-});
-
-router.get('/widget-social-login', function(req, res, next) {
-  res.render('widget-social-login', {
-    redirectUri: oauthRedirectUri(req),
-    reach5Domain: process.env.REACHFIVE_DOMAIN,
-    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
-  });
-});
-
 router.get('/core-social-login', function(req, res, next) {
   res.render('core-social-login', {
-    redirectUri: oauthRedirectUri(req),
-    reach5Domain: process.env.REACHFIVE_DOMAIN,
-    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
-  });
-});
-
-router.get('/widget-user-password-reset', function(req, res, next) {
-  res.render('widget-user-password-reset', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACHFIVE_DOMAIN,
     reach5ClientId: process.env.REACHFIVE_CLIENT_ID
@@ -118,43 +86,6 @@ const authenticated = function(req, res, next) {
 router.get('/user', authenticated, function(req, res, next) {
   res.render('user', {
     name: req.session.name,
-    reach5Domain: process.env.REACHFIVE_DOMAIN,
-    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
-  });
-});
-
-router.get('/widget-user-profile-editor', authenticated, function(req, res, next) {
-  res.render('widget-user-profile-editor', {
-    name: req.session.name,
-    accessToken: req.session.accessToken,
-    reach5Domain: process.env.REACHFIVE_DOMAIN,
-    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
-  });
-});
-
-router.get('/widget-user-email-editor', authenticated, function(req, res, next) {
-  res.render('widget-user-email-editor', {
-    name: req.session.name,
-    accessToken: req.session.accessToken,
-    reach5Domain: process.env.REACHFIVE_DOMAIN,
-    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
-  });
-});
-
-router.get('/widget-user-password-editor', authenticated, function(req, res, next) {
-  res.render('widget-user-password-editor', {
-    name: req.session.name,
-    accessToken: req.session.accessToken,
-    reach5Domain: process.env.REACHFIVE_DOMAIN,
-    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
-  });
-});
-
-router.get('/widget-user-social-accounts', authenticated, function(req, res, next) {
-  res.render('widget-user-social-accounts', {
-    name: req.session.name,
-    idToken: req.session.idToken,
-    accessToken: req.session.accessToken,
     reach5Domain: process.env.REACHFIVE_DOMAIN,
     reach5ClientId: process.env.REACHFIVE_CLIENT_ID
   });

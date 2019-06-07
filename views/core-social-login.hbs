@@ -11,8 +11,12 @@
 
 <script>
     function login(provider) {
-        reach5('loginWithSocialProvider', provider, {
-            redirectUri: '{{redirectUri}}'
-        });
+
+      client.loginWithSocialProvider(provider, {
+        redirectUri: '{{redirectUri}}'
+      })
+      .then(console.log)
+      .catch(console.log)
     }
+    
 </script>

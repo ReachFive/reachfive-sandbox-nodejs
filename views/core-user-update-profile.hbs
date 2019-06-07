@@ -1,11 +1,11 @@
-<form id="update-form">
+<form id="update-form" onsubmit="update(event)">
     <div>
-        <input type="text" name="givenName" placeholder="First Name">
+        <input type="text" name="given_name" placeholder="First Name">
     </div>
     <div>
-        <input type="text" name="familyName" placeholder="Last Name">
+        <input type="text" name="family_name" placeholder="Last Name">
     </div>
-    <button onclick="login(event)">
+    <button>
         Submit
     </button>
 </form>
@@ -15,19 +15,22 @@
 </p>
 
 <script>
-    function login(e) {
+    function update(e) {
         e.preventDefault();
+
         var form = document.getElementById('update-form');
         var formData = new FormData(form);
-        reach5('updateProfile', {
+
+        client.updateProfile({
           accessToken: '{{accessToken}}',
           data: {
-            givenName: formData.get('givenName'),
-            familyName: formData.get('familyName')
+            given_name: formData.get('given_name'),
+            family_name: formData.get('family_name')
           }
-        }, function (err) {
-            if (err) console.log(err);
-        });
+        })
+        .then(console.log)
+        .catch(console.log)
+
         return false;
     }
 </script>

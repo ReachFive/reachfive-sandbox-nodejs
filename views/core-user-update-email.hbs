@@ -1,9 +1,9 @@
-<form id="update-form">
+<form id="update-form" onsubmit="update(event)">
     <div id="result"></div>
     <div>
         <input type="text" name="email" placeholder="Email">
     </div>
-    <button onclick="login(event)">
+    <button>
         Submit
     </button>
 </form>
@@ -13,20 +13,20 @@
 </p>
 
 <script>
-    function login(e) {
+    function update(e) {
+
         e.preventDefault();
+
         var form = document.getElementById('update-form');
         var formData = new FormData(form);
-        reach5('updateEmail', {
+
+        client.updateEmail({
           accessToken: '{{accessToken}}',
           email: formData.get('email')
-        }, function (err, res) {
-            if (err) {
-                document.getElementById('result').append(err.errorDescription)
-            } else {
-                document.getElementById('result').append('Your request has been processed successfully')
-            }
-        });
+        })
+        .then(document.getElementById('result').append('Your request has been processed successfully'))
+        .catch(document.getElementById('result').append(err.errorDescription))
+
         return false;
     }
 </script>

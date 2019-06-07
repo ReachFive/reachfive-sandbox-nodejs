@@ -3,9 +3,12 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script async src="https://{{reach5Domain}}/js/v1/identity.js?client_id={{reach5ClientId}}"></script>
-    <script>
-        window.reach5=window.reach5||function(){(reach5.q=reach5.q||[]).push(arguments)};
+    <script src="https://unpkg.com/@reachfive/identity-core@1.2.1/umd/identity-core.min.js"></script>
+    <script type="text/javascript">
+        const client = reach5.createClient({
+            domain: '{{reach5Domain}}',
+            clientId: '{{reach5ClientId}}'
+        })
     </script>
   </head>
   <body>
