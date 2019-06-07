@@ -36,5 +36,6 @@ npm-debug.log
 *.css
 
 # Environment file
+public.pem*
+.env-*
 .env
-public.pem
