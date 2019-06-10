@@ -25,8 +25,16 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/core-login-with-password', function(req, res, next) {
-  res.render('core-login-with-password', {
+router.get('/core-login-with-email-password', function(req, res, next) {
+  res.render('core-login-with-email-password', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACHFIVE_DOMAIN,
+    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
+  });
+});
+
+router.get('/core-login-with-phone-password', function(req, res, next) {
+  res.render('core-login-with-phone-password', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACHFIVE_DOMAIN,
     reach5ClientId: process.env.REACHFIVE_CLIENT_ID
