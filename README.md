@@ -17,22 +17,26 @@ Install dependencies
 
 ## Configure
 
-Copy `.env.example` to `.env` and replace the values for `REACHFIVE_DOMAIN`, `REACHFIVE_JWT`,`REACHFIVE_CLIENT_ID`, and `REACHFIVE_CLIENT_SECRET`.
+1. Copy `.env.example` to `.env`.
+2. Open `.env`, and set the values for the following parameters, available from your ReachFive console tenant account:
 
-`REACHFIVE_DOMAIN` is available in your ReachFive account settings.
+    * `REACHFIVE_DOMAIN` (_Settings_).
+    * `REACHFIVE_JWT`: _HS256_ or _RS256_.
+    * `REACHFIVE_CLIENT_ID` (_Settings_ > _Clients_).
+    * `REACHFIVE_CLIENT_SECRET` (_Settings_ > _Clients_).
 
-Create a `public.pem` file with your public RSA key available in your ReachFive account settings.
+3. In the ReachFive console, set these URLs for your _First-party Identity_ client:
 
-To acquire `REACHFIVE_CLIENT_ID`, and `REACHFIVE_CLIENT_SECRET` credentials, you need to create a new Identity API Client in "Clients" section.
-To make it works correctly, you also have to add the following values in the client settings:
- * `http://localhost:3000` in **Allowed Origins**
- * `http://localhost:3000/login/callback` in **Allowed Callback URLs**
+    * **Allowed Origins (CORS)**: `http://localhost:3000`
+    * **Allowed Callback URLs**: `http://localhost:3000/login/callback`
+
+4. Create a `public.pem` file containing the RSA public key available in the ReachFive account settings.
 
 ## Run
 
     yarn start
 
-You can now see the app running at `http://localhost:3000`.
+Navigate to `http://localhost:3000` and enjoy the sandbox.
 
 ## Author
 
