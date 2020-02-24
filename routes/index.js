@@ -49,8 +49,24 @@ router.get('/core-login-with-phone-password', function(req, res, next) {
   });
 });
 
+router.get('/core-passwordless', function(req, res, next) {
+  res.render('core-passwordless', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACHFIVE_DOMAIN,
+    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
+  });
+});
+
 router.get('/core-login-with-password-sso', function(req, res, next) {
   res.render('core-login-with-password-sso', {
+    redirectUri: oauthRedirectUri(req),
+    reach5Domain: process.env.REACHFIVE_DOMAIN,
+    reach5ClientId: process.env.REACHFIVE_CLIENT_ID
+  });
+});
+
+router.get('/core-custom-token', function(req, res, next) {
+  res.render('core-custom-token', {
     redirectUri: oauthRedirectUri(req),
     reach5Domain: process.env.REACHFIVE_DOMAIN,
     reach5ClientId: process.env.REACHFIVE_CLIENT_ID

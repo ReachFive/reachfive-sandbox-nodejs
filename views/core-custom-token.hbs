@@ -1,0 +1,30 @@
+<form id="login-form">
+    <div>
+        <input type="text" name="accessToken" placeholder="Access Token">
+    </div>
+
+    <button onclick="login(event)">
+        Submit
+    </button>
+</form>
+
+<p>
+    <a href="/user">Back</a>
+</p>
+
+<script>
+    function login(e) {
+        e.preventDefault();
+        var form = document.getElementById('login-form');
+        var formData = new FormData(form);
+        reach5('loginWithCustomToken', {
+          token: '{{accessToken}}',
+          auth: {
+              redirectUri: '{{redirectUri}}'
+          }
+        }, function (err) {
+            if (err) console.log(err);
+        });
+        return false;
+    }
+</script>
