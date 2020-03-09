@@ -2,7 +2,7 @@
 
 ## Requirements
 
- * Yarn
+ * Node
 
 ## Install
 
@@ -13,7 +13,7 @@ Clone this repository from Github
 
 Install dependencies
 
-    yarn
+    npm install
 
 ## Configure
 
@@ -30,7 +30,7 @@ To make it works correctly, you also have to add the following values in the cli
 
 ## Run
 
-    yarn start
+    npm start
 
 You can now see the app running at `http://localhost:3000`.
 
